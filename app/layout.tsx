@@ -45,19 +45,24 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <header className="flex justify-end items-center p-4 gap-4 h-16">
-              <Show when="signed-out">
-                <SignInButton />
-                <SignUpButton>
-                  <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                    Sign Up
-                  </button>
-                </SignUpButton>
-              </Show>
-              <Show when="signed-in">
-                <UserButton />
-              </Show>
-              <ModeToggle />
+            <header className="flex justify-end md:justify-between items-center p-4 gap-4 h-12 border-b">
+              <p className="bold text-xl hidden md:block">Baby Tracker</p>
+              <div className="flex items-center gap-4">
+                <Show when="signed-out">
+                  <SignInButton>
+                    <span className="cursor-pointer">Sign In</span>
+                  </SignInButton>
+                  <SignUpButton>
+                    <span className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base  h-8 px-4 sm:px-5 cursor-pointer inline-flex items-center justify-center">
+                      Sign Up
+                    </span>
+                  </SignUpButton>
+                </Show>
+                <Show when="signed-in">
+                  <UserButton />
+                </Show>
+                <ModeToggle />
+              </div>
             </header>
             {children}
           </ThemeProvider>
